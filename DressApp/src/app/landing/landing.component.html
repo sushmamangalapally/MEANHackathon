@@ -1,0 +1,24 @@
+<h1>Sign In</h1>
+<form (submit)="login()" #formData="ngForm"  method="post">
+  <label>Email</label>
+  <input type="text" [(ngModel)]="user.email" required name="getemail" #getemail="ngModel">
+  <div class="red" *ngIf="getemail.errors && (getemail.dirty || getemail.touched)">
+        <div [hidden]="!getemail.errors.required">
+          Email is required
+        </div>
+  </div>   
+  <label>Password</label>
+  <input type="password" [(ngModel)]="user.password" required name="getpassword" #getpassword="ngModel">
+  <div class="red" *ngIf="getpassword.errors && (getpassword.dirty || getpassword.touched)">
+        <div [hidden]="!getpassword.errors.required">
+          Password is required
+        </div>
+  </div> 
+  <input [disabled] = "getemail.errors || getpassword.errors"  type="submit" value="Submit">
+</form>
+
+<span *ngIf="errorslogin">{{errorslogin}}</span>
+
+<h1>Don't have an account? Join now</h1>
+<app-register></app-register>
+

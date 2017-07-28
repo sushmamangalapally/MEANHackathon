@@ -1,0 +1,22 @@
+<h1>Hey {{gettingusername}}</h1>
+<h1> Dashboard Component</h1>
+<a [routerLink]="['/newdress']">Create a Dress</a>
+<div class="search">
+  <label>Search</label>
+  <input type="text" name="filter_dress" [(ngModel)]="filter_dress" value="Search"> <br>  
+</div>
+<div *ngFor="let dress of alldresses | search:filter_dress">
+  <label> Name: </label>
+  <p>{{dress.name}}</p>
+ <label> Description: </label>
+  <p>{{dress.description}}</p>
+ <label> Rent Price: </label>
+ <p>{{dress.price  | currency:USD:true }}</p>
+    <br> <label> Actual Price: </label>
+ <p>{{dress.price*.50 + dress.price | number}}</p>
+  <br> <label> Image: </label><br>
+  <img src="{{dress.image}}" >
+  <a [routerLink]="['/singledress/', dress._id]">Rent</a>
+</div>
+
+

@@ -1,0 +1,25 @@
+<p>
+  newdress component!
+</p>
+
+<h1> Adding a new dress</h1>
+<div>
+<form (submit)="create()">
+    Name: 
+      <input type="text" [(ngModel)]="dress.name" name="name" id="name"><br>
+    Description:
+      <input type="text" [(ngModel)]="dress.description" name="description"><br>
+		Price: 
+			<input type="number" [(ngModel)]="dress.price" name="price" id="price"><br>
+    Image: 
+      <input type="text"  [(ngModel)]="dress.image" name="image"><br>
+
+
+      <!-- <label for="from">Rent From:</label>
+<input id="from" [(ngModel)]="dress.renton" name="renton" type="date" min="2017-07-08" max="2017-07-30"><br>
+<Label>Rent To </Label>
+<input type="date" [(ngModel)]="dress.rentto" name="rentto" ><br> -->
+
+<input type="submit" value="Add a new dress">
+</form>
+</div>

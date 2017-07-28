@@ -1,0 +1,58 @@
+<div id="work">
+  <p>Thank you for registering with us</p>
+</div>
+<div class="rgstr">
+  <form #myForm='ngForm' name='myForm' method="post" (submit)="onSubmit()">
+    <label>First Name:</label>
+    <input type="text" name="firstName" [(ngModel)]='user.firstName' #firstName='ngModel' required>
+      <span *ngIf='firstName.invalid && firstName.touched'>
+      <p>First Name is required.</p></span><br><br>
+    <label>Last Name:</label>
+    <input type="text" name="lastName" [(ngModel)]='user.lastName' #lastName='ngModel' required>
+      <span *ngIf='lastName.invalid && lastName.touched'>
+      <p>Last Name is required</p></span><br><br>
+    <label>Email:</label>
+    <input type="email" name="email" required [(ngModel)]='user.email' #email='ngModel'
+      pattern='([a-zA-Z0-9\-\_\"]+)([\_\.\-\+{1}])?([a-zA-Z0-9\-\"\_]+)\@([a-zA-Z0-9\[]+)([\-])?([a-zA-Z0-9]+)?([\.])([a-zA-Z0-9\.\]]+)$'>
+
+      <span *ngIf='email.invalid && email.touched'>
+      <p>Email must be valid!</p></span><br><br>
+
+    <label>Password:</label>
+    <input type="password" name="password" minlength='8'[(ngModel)]='user.password' #password='ngModel' required>
+
+      <span *ngIf='password.invalid && password.touched'>
+      <p>Password must be at least 8 characters long!</p></span><br><br>
+
+    <label for="confirmpw">Password Confirmation</label>
+    <input type="password" name="confirmpw"[(ngModel)]='user.confirmpw' minlength='8' [pattern]='user.password' #confirmpw='ngModel' required>
+      <span *ngIf='confirmpw.invalid && confirmpw.touched'>
+      <p>Passwords must match</p></span><br><br>
+
+    <label>Street Address</label>
+    <input type="text" name="street" minlength='4' [(ngModel)]='user.street' #street='ngModel'  required>
+      <span *ngIf='street.invalid && street.dirty'>
+      <p>Street Address required</p></span><br><br>
+
+    <label for="unit">Unit/Apt #:</label>
+    <input type="text" name="suite" [(ngModel)]='user.suite' #unit='ngModel'><br><br>
+
+    <label for="city">City:</label>
+    <input type="text" name="city" [(ngModel)]='user.city' #city='ngModel' required>
+
+      <span *ngIf='city.invalid && city.touched'>
+      <p>City is required</p></span><br><br>
+
+    <label for="state">State:</label>
+    <select name='state' id='state' required [(ngModel)]='user.state' #state='ngModel'>
+        <option value='' selected disabled>Select a state</option>
+        <option *ngFor='let state of states' [value]='state'>{{state}}</option>
+    </select>
+
+      <span *ngIf='!state.valid && state.dirty'>
+      <i>State is required</i></span><br><br>
+
+    <input type="submit" [disabled]="!myForm.form.valid" value="Register">
+    {{ myForm.valid | json }}
+    </form>
+</div>
