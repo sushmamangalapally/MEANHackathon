@@ -9,7 +9,7 @@
     <div *ngFor="let dress of alldresses | search:filter_dress">
 
       <div class="grid-example col s6">
-        <img src="{{dress.image}}" >
+        <a [routerLink]="['/singledress/', dress._id]"><img src="{{dress.image}}" ></a>
       <p>{{dress.name}}</p>
     <!-- <label> Description: </label>
       <p>{{dress.description}}</p> -->

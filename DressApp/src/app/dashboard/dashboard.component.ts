@@ -56,6 +56,9 @@ export class DashboardComponent implements OnInit {
         }
       )        
     }
+    else{
+      this.router.navigate(['']);
+    }
     this.searchStr = " "
   }
   getTasks(){
