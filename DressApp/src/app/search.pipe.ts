@@ -7,7 +7,7 @@ import { Dress } from "./dress";
 export class SearchPipe implements PipeTransform {
 
   transform(value: Array<Dress>, filter_dress: string): Array<Dress>  {
-    if(!value){ return value }
+    if(!filter_dress){ return value }
     return value.filter(
       dress => {
         console.log("in search: ", dress)
@@ -17,3 +17,4 @@ export class SearchPipe implements PipeTransform {
   }
 
 }
+

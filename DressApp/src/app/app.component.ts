@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-
+import {User} from "./user"
+import {RegistrationService} from './registration.service';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-    constructor(){
 
+    constructor(){
   }
 }

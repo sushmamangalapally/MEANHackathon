@@ -1,0 +1,7 @@
+.rentprice, .actprice{
+    display: inline-block;
+}
+
+.actprice{
+    color: #9e9e9e;
+}

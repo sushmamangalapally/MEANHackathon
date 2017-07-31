@@ -1,7 +1,11 @@
+import { MaterializeModule } from 'angular2-materialize';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+
 
 import {RegistrationService} from './registration.service';
 import { GetdressService } from './getdress.service';
@@ -17,8 +21,10 @@ import { NewdressComponent } from './newdress/newdress.component';
 import { NewdressService } from './newdress.service';
 import { SearchPipe } from './search.pipe';
 
+// import {} from 'materialize-css/dist/'
 const routes: Routes = [
  {path:"", pathMatch: 'full', component: LandingComponent},
+  {path:"about", pathMatch: 'full', component: AboutComponent},
  {path:"newdress", pathMatch: 'full', component: NewdressComponent},
  {path:"singledress/:id", component: SingledressComponent},
  {path:"dashboard", component: DashboardComponent},
@@ -36,12 +42,14 @@ const routes: Routes = [
     SingledressComponent,
     NewdressComponent,
     SearchPipe
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MaterializeModule
   ],
   providers: [RegistrationService, GetdressService, NewdressService],
   bootstrap: [AppComponent]

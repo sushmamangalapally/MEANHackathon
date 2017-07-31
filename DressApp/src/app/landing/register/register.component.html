@@ -3,15 +3,17 @@
 </div>
 <div class="rgstr">
   <form #myForm='ngForm' name='myForm' method="post" (submit)="onSubmit()">
-    <label>First Name:</label>
+    
+    <label><i class="material-icons prefix">person</i> First Name:</label>
     <input type="text" name="firstName" [(ngModel)]='user.firstName' #firstName='ngModel' required>
       <span *ngIf='firstName.invalid && firstName.touched'>
       <p>First Name is required.</p></span><br><br>
-    <label>Last Name:</label>
+    
+    <label><i class="material-icons prefix">person</i> Last Name:</label>
     <input type="text" name="lastName" [(ngModel)]='user.lastName' #lastName='ngModel' required>
       <span *ngIf='lastName.invalid && lastName.touched'>
       <p>Last Name is required</p></span><br><br>
-    <label>Email:</label>
+    <label><i class="material-icons prefix">email</i> Email:</label>
     <input type="email" name="email" required [(ngModel)]='user.email' #email='ngModel'
       pattern='([a-zA-Z0-9\-\_\"]+)([\_\.\-\+{1}])?([a-zA-Z0-9\-\"\_]+)\@([a-zA-Z0-9\[]+)([\-])?([a-zA-Z0-9]+)?([\.])([a-zA-Z0-9\.\]]+)$'>
 
@@ -29,7 +31,7 @@
       <span *ngIf='confirmpw.invalid && confirmpw.touched'>
       <p>Passwords must match</p></span><br><br>
 
-    <label>Street Address</label>
+    <label><i class="material-icons prefix">local_post_office</i>Street Address</label>
     <input type="text" name="street" minlength='4' [(ngModel)]='user.street' #street='ngModel'  required>
       <span *ngIf='street.invalid && street.dirty'>
       <p>Street Address required</p></span><br><br>
@@ -44,15 +46,16 @@
       <p>City is required</p></span><br><br>
 
     <label for="state">State:</label>
-    <select name='state' id='state' required [(ngModel)]='user.state' #state='ngModel'>
+    <select class="browser-default" name='state' id='state' required [(ngModel)]='user.state' #state='ngModel'>
         <option value='' selected disabled>Select a state</option>
         <option *ngFor='let state of states' [value]='state'>{{state}}</option>
     </select>
 
+
       <span *ngIf='!state.valid && state.dirty'>
       <i>State is required</i></span><br><br>
 
-    <input type="submit" [disabled]="!myForm.form.valid" value="Register">
-    {{ myForm.valid | json }}
+    <input class="btn waves-effect waves-light" type="submit" [disabled]="!myForm.form.valid" value="Register">
+    <!-- {{ myForm.valid | json }} -->
     </form>
 </div>

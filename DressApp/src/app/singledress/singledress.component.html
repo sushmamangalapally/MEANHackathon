@@ -1,37 +1,41 @@
+<a class="waves-effect waves-light btn" [routerLink]="['/dashboard']">Go Back</a>
+<div class="row">
+  <div class="col s6 ">
+    <img src="{{image}}">
+  </div>
+  <div class="col s6">
+    <h3>{{name}}</h3>
+    <h4>Price: {{price| currency:USD:true}}</h4>
+    <p>Description {{description}}</p>
+    <form #mysingledressForm='ngForm' name='mysingledressForm' method="post"  (submit)="rentadress()">
+      <label>Size:</label>
+      <select class="browser-default" name="mydropdown">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+      </select><br> 
+      <input type="hidden" name="namedress" #namedress="ngModel" [(ngModel)] = "dress.name" value={{name}}>
+      <label for="from">Rent From:</label>
+      <input required id="from" name="rentfrom" #rentfrom = 'ngModel' type="date" [(ngModel)]='dress.renton' min="{{rentto}}" > 
+      <div class="red" *ngIf="rentfrom.errors && (rentfrom.dirty || rentfrom.touched)">
+            <div [hidden]="!rentfrom.errors.required">
+              Please find a starting date to rent from!
+            </div>
+      </div> 
+      <br> 
+      <label>Rent To </label>
+      <input required type="date" name="renttodate" [(ngModel)]='dress.rentto' #renttodate='ngModel' ><br>
+      <div class="red" *ngIf="rentto.errors && (rentto.dirty || rentto.touched)">
+            <div [hidden]="!rentto.errors.required">
+              Please find a finishing date to end rent!
+            </div>
+      </div> 
+                <!-- <label for="from">Rent From:</label>
+    <input id="from" [(ngModel)]="dress.renton" name="renton" type="date" min="2017-07-08" max="2017-07-30"><br>
+    <Label>Rent To </Label>
+    <input type="date" [(ngModel)]="dress.rentto" name="rentto" ><br> -->
 
-<h1> Single Dress component</h1>
-<img src="{{image}}">
-<p> Name: {{name}}</p>
-<p>Price: {{price}}</p>
-<p>Description {{description}}</p>
-<form #mysingledressForm='ngForm' name='mysingledressForm' method="post"  (submit)="rentadress()">
-   <label>Size:</label>
-  <select name="mydropdown">
-      <option value="small">Small</option>
-      <option value="medium">Medium</option>
-      <option value="large">Large</option>
-  </select><br> 
-  <input type="hidden" name="namedress" #namedress="ngModel" [(ngModel)] = "dress.name" value={{name}}>
-  <label for="from">Rent From:</label>
-  <input required id="from" name="rentfrom" #rentfrom = 'ngModel' type="date" [(ngModel)]='dress.renton' min="{{currentDate}}" > <!--max="{{currentDate+10}}"-->
-  <div class="red" *ngIf="rentfrom.errors && (rentfrom.dirty || rentfrom.touched)">
-        <div [hidden]="!rentfrom.errors.required">
-          Please find a starting date to rent from!
-        </div>
-  </div> 
-  <br> 
-  <label>Rent To </label>
-  <input required type="date" name="rentto" [(ngModel)]='dress.rentto' #rentto='ngModel' min="{{currentDate+2}}" max="{{currentDate+10}}"><br>
-  <div class="red" *ngIf="rentto.errors && (rentto.dirty || rentto.touched)">
-        <div [hidden]="!rentto.errors.required">
-          Please find a finishing date to end rent!
-        </div>
-  </div> 
-            <!-- <label for="from">Rent From:</label>
-<input id="from" [(ngModel)]="dress.renton" name="renton" type="date" min="2017-07-08" max="2017-07-30"><br>
-<Label>Rent To </Label>
-<input type="date" [(ngModel)]="dress.rentto" name="rentto" ><br> -->
-
-  <input type="submit" value="Rent"><br>
-</form>
-
+      <input class="waves-effect waves-light btn" type="submit" value="Rent"><br>
+    </form>
+  </div>
+</div>

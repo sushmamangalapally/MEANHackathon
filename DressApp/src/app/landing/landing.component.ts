@@ -37,5 +37,14 @@ export class LandingComponent implements OnInit {
     )
   }
 
+  getLogin() {
+    document.getElementById("panel").style.display = "block";
+    document.getElementById("thatpanel").style.display = "none";
+}
+SignUp() {
+    document.getElementById("thatpanel").style.display = "block";
+    document.getElementById("panel").style.display = "none";
+}
+
 
 }

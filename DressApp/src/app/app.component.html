@@ -1,4 +1,35 @@
-<h1>HELLO WORLD</h1>
+  <nav>
+    <div class="teal lighten-3 nav-wrapper">
+      <a href="#" class="brand-logo">RentTheDress</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li *ngIf="!this.user" class="active"><a [routerLink]="['']">Log In</a></li>
+        <li *ngIf="this.user" class="active"><a [routerLink]="['']">Log Out</a></li>
+        <li><a [routerLink]="['/about']">About Us</a></li>
+      </ul>
+    </div>
+  </nav>
+<main>
+<div class="container">
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 
+    
+</div>
+</main>
+<!-- <div>
+<footer class="page-footer teal lighten-3">
+    <div class="container page-footer teal lighten-3">
+    <div class="row">
+        <div class="col l6 s12">
+        <h5 class="white-text">RentTheDress Hackathon Project</h5>
+        <p class="grey-text text-lighten-4">Developed by Aysun F., Sujata Roy, Sushma Mangalapally</p>
+        </div>
+    </div>
+    </div>
+    <div class="teal darken-1 footer-copyright">
+    <div class="container">
+    © 2017 Copyright Text
+    </div>
+    </div>
+</footer>
+</div> -->

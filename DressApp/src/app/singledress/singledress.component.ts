@@ -22,6 +22,8 @@ export class SingledressComponent implements OnInit {
   image = '';
   singledress;
   errorslogin;
+  renton=""
+  rentto=""
   dress= new Dress();
   currentDate: Date;
    constructor(private _http: Http, private _dress: GetdressService, private router: Router, private _route: ActivatedRoute){ 
@@ -46,7 +48,10 @@ export class SingledressComponent implements OnInit {
           this.price = singledress.price
           this.description = singledress.description
           this.image = singledress.image
-
+          this.renton = singledress.renton.slice(0,10)
+      console.log("this.renton", this.renton);
+      this.rentto = singledress.rentto.slice(0,10)
+      console.log("this.rentto", this.rentto);
         }
       )
       .catch((err)=>{

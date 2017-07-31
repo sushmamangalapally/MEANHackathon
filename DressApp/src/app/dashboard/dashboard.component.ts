@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
   user: User;
   searchStr: string = '';
   gettingusername;
-  searchPipe = new SearchPipe();
+  // searchPipe = new SearchPipe();
   constructor(private _getdressService: GetdressService, public _register: RegistrationService, private router: Router, private _route: ActivatedRoute){
     this.user = _register.currentUser;
   }  
@@ -56,6 +56,7 @@ export class DashboardComponent implements OnInit {
         }
       )        
     }
+    this.searchStr = " "
   }
   getTasks(){
     this.name = this.name;
